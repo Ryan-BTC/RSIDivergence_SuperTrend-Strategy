@@ -66,7 +66,7 @@ class SuperTrendRSIDivergence(backtrader.Strategy):
         if not self.data.in_uptrend[previous_row_index] and self.data.in_uptrend[last_row_index]:
             bullish_recent = any(self.data.bullish_div[-j] for j in range(1, lookback + 1))
 
-            if rsi_cross_up:
+            if bullish_recent:
                 self.log("SuperTrend UP + Bullish Divergence → BUY")
                 print("Changed to uptrend, buy")
 
@@ -78,7 +78,7 @@ class SuperTrendRSIDivergence(backtrader.Strategy):
         if self.data.in_uptrend[previous_row_index] and not self.data.in_uptrend[last_row_index]:
             bearish_recent = any(self.data.bearish_div[-j] for j in range(1, lookback + 1))
 
-            if rsi_cross_down:
+            if bearish_recent:
                 self.log("Supertrend DOWN + Bearish Divergence → SELL")
                 print("Changed to downtrend, sell")
 

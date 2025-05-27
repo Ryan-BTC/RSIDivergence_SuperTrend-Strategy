@@ -1,4 +1,3 @@
-import pandas as pd
 import ta
 
 def add_rsi_divergence(df, rsi_window=14, divergence_lookback=20):
